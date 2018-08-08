@@ -1,5 +1,7 @@
 package com.edward.dataconsumer.rest.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 
 import com.edward.dataconsumer.rest.model.SecurityPriceHistoryModel;
@@ -11,4 +13,6 @@ public interface SecurityPriceHistoryModelDTOMapper {
 	SecurityPriceHistoryDTO modelToDTO(SecurityPriceHistoryModel securityPriceHistoryModel);
 	
 	SecurityPriceHistoryModel dtoToModel(SecurityPriceHistoryDTO securityPriceHistoryDTO);
+	
+	List<SecurityPriceHistoryModel> dtoToModelList(List<SecurityPriceHistoryDTO> securityPriceHistoryDTOs);
 }

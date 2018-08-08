@@ -10,12 +10,15 @@ public class SecurityPriceHistoryDTO {
 	private String securityNumber;
 	private DateTime executionTime;
 	private BigDecimal executionPrice;
-	/** 
+	
+	public SecurityPriceHistoryDTO() {
+		
+	}
 	public SecurityPriceHistoryDTO(String securityNumber,DateTime executionTime,BigDecimal executionPrice) {
 		this.securityNumber = securityNumber;
 		this.executionTime = executionTime;
 		this.executionPrice = executionPrice;
-	}*/
+	}
 	
 	public String getSecurityNumber() {
 		return securityNumber;
@@ -41,6 +44,4 @@ public class SecurityPriceHistoryDTO {
                 " SecurityPriceHistoryDTO[id=%s, securityNumber='%s', executionTime='%s',executionPrice=%s]",
                 id, securityNumber, executionTime,executionPrice);
     }
-	
-
 }

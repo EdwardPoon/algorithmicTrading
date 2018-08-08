@@ -1,6 +1,7 @@
 package com.edward.dataconsumer.service.impl;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,9 @@ public class SecurityPriceHistoryServiceImpl implements SecurityPriceHistoryServ
 	@Override
 	public SecurityPriceHistoryDTO saveSecurityPriceHistory(SecurityPriceHistoryDTO securityPriceHistoryDTO) {
 		SecurityPriceHistory securityPriceHistory = repository.save(mapper.dtoToEntity(securityPriceHistoryDTO));
-		return mapper.entityToDTO(securityPriceHistory);
+		SecurityPriceHistoryDTO ret = mapper.entityToDTO(securityPriceHistory);
+		System.out.println("save successfully:"+ret.toString());
+		return ret;
 	}
 
 	@Override
@@ -47,9 +50,19 @@ public class SecurityPriceHistoryServiceImpl implements SecurityPriceHistoryServ
 	public BigDecimal calculateAveragePrice(List<BigDecimal> priceList) {
 		BigDecimal sumPrice = BigDecimal.ZERO;
 		for (BigDecimal price : priceList) {
-			sumPrice.add(price);
+			sumPrice = sumPrice.add(price);
 		}
-		return sumPrice.divide(BigDecimal.valueOf(priceList.size()));
+		return sumPrice.divide(BigDecimal.valueOf(priceList.size()), 2, RoundingMode.HALF_UP);
+	}
+
+	@Override
+	public List<SecurityPriceHistoryDTO> findAll(String securityNumber) {
+		List<SecurityPriceHistory> list = repository.findAllBySecurityNumber(securityNumber);
+		List<SecurityPriceHistoryDTO> retList = new ArrayList<SecurityPriceHistoryDTO>();
+		for (SecurityPriceHistory securityPriceHistory : list) {
+			retList.add( mapper.entityToDTO(securityPriceHistory));
+		}
+		return retList;
 	}
 
 }

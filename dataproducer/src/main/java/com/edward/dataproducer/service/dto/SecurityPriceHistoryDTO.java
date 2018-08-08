@@ -1,29 +1,29 @@
-package com.edward.dataconsumer.rest.model;
+package com.edward.dataproducer.service.dto;
 
 import java.math.BigDecimal;
 
+import org.joda.time.DateTime;
 import org.joda.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.joda.deser.LocalDateTimeDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SecurityPriceHistoryModel {
-
+public class SecurityPriceHistoryDTO {
+	
     public String id;
 	private String securityNumber;
-	
-	@JsonDeserialize(using=LocalDateTimeDeserializer.class)
 	private LocalDateTime executionTime;
-	
 	private BigDecimal executionPrice;
-	public String getId() {
-		return id;
+	
+	public SecurityPriceHistoryDTO() {
+		
 	}
-	public void setId(String id) {
-		this.id = id;
+	public SecurityPriceHistoryDTO(String securityNumber,LocalDateTime executionTime,BigDecimal executionPrice) {
+		this.securityNumber = securityNumber;
+		this.executionTime = executionTime;
+		this.executionPrice = executionPrice;
 	}
+	
 	public String getSecurityNumber() {
 		return securityNumber;
 	}
@@ -42,6 +42,10 @@ public class SecurityPriceHistoryModel {
 	public void setExecutionPrice(BigDecimal executionPrice) {
 		this.executionPrice = executionPrice;
 	}
-	
-	
+	@Override
+    public String toString() {
+        return String.format(
+                " SecurityPriceHistoryDTO[id=%s, securityNumber='%s', executionTime='%s',executionPrice=%s]",
+                id, securityNumber, executionTime,executionPrice);
+    }
 }

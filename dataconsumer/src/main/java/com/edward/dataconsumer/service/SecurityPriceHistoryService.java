@@ -12,5 +12,7 @@ public interface SecurityPriceHistoryService {
 	BigDecimal calculateAveragePriceForLastRecord(String securityNumber,int lastRecordCount);
 	
 	BigDecimal calculateAveragePrice(List<BigDecimal> priceList);
+	
+	List<SecurityPriceHistoryDTO> findAll(String securityNumber);
 
 }

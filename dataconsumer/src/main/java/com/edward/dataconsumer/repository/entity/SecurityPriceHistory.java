@@ -14,6 +14,10 @@ public class SecurityPriceHistory {
 	private DateTime executionTime;
 	private BigDecimal executionPrice;
 	
+	public SecurityPriceHistory() {
+		
+	}
+	
 	public SecurityPriceHistory(String securityNumber,DateTime executionTime,BigDecimal executionPrice) {
 		this.securityNumber = securityNumber;
 		this.executionTime = executionTime;
