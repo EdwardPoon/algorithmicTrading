@@ -12,7 +12,7 @@ import com.edward.dataproducer.service.PriceDataProducer;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-public class DataproducerApplication  implements CommandLineRunner{
+public class DataproducerApplication implements CommandLineRunner{
 	
 	@Autowired
 	private PriceDataProducer priceDataProducer;
