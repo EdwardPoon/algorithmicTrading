@@ -1,5 +1,8 @@
 
-1. project dataproducer: 
+## **Introduction**
+
+
+1. dataproducer: 
 It works as 3rd party source which publishes an stock price.
 It's generating price with timestamp in every 10 seconds , Use RxJAVA as reactive programming framework :
 
@@ -14,7 +17,7 @@ It is an eureka service which for introducing eureka microservie functions
 a react js UI client which querys the average price of last x price
 
 
-Plesae follow the following steps to start the services:
+# Run the services:
 1. start  eureka-service
 cd eureka-service
 mvn clean install
