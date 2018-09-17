@@ -1,23 +1,21 @@
 
 ## **Introduction**
 
-
 1. dataproducer: 
-It works as 3rd party source which publishes an stock price.
-It's generating price with timestamp in every 10 seconds , Use RxJAVA as reactive programming framework :
+It works as 3rd party source which publishes the stock prices.
+Use RxJAVA as reactive programming framework :
 
 2. dataconsumer :
-It saves the data into mongodb when data got received 
-another function is to calculate the stock price
+It saves the data into mongodb when data got received.
 
 3. eureka-service : 
 It is an eureka service which for introducing eureka microservie functions
 
 4. price-ui : 
-a react js UI client which querys the average price of last x price
+A react js UI client for showing the calculation results
 
 
-# Run the services:
+## **Run the services**
 1. start  eureka-service
 cd eureka-service
 mvn clean install
