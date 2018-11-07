@@ -35,6 +35,6 @@ http://localhost:8761/
 
 4. start UI  
 cd price-ui  
-npm install react-scripts -g  
+npm install  
 npm start  
 http://localhost:3000
