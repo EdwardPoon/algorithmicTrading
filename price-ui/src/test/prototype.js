@@ -6,4 +6,4 @@ Cat.prototype.meow = function meow() {
 };
 
 let cat = new Cat("Hector");
-cat.meow;
+cat.meow();
