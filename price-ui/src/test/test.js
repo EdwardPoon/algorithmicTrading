@@ -14,7 +14,7 @@ var images = new Array(
 	"images/website3.jpg"
   );
 
-setTimeout(function() { delay(images, 0); }, 1000);
+//setTimeout(function() { delay(images, 0); }, 1000);
 
 function delay(arr, num) {
   if (arr[num]){
@@ -25,17 +25,26 @@ function delay(arr, num) {
 
 class WebSocketService {
   constructor() {
+		console.log("constructor");
     this.reconnectTimes = 0;
 		this.MAX_RECONNECT_TIME = 10;
+		this.onConnect = this.onConnect.bind(this);
 	}
 
 	connect() {
-    setTimeout(this.onConnect, 1000);
+		console.log("connect");
+    setTimeout(this.onConnect , 1000);
 	}
 	onConnect(){
+		console.log("on connect");
+		//console.log(this);
 		if (this.reconnectTimes < this.MAX_RECONNECT_TIME) {
-				console.log("image:"+arr[num]);
-				setTimeout(function() { delay(arr, num + 1); }, 1000);
+				console.log("this.reconnectTimes:"+this.reconnectTimes);
+				this.connect();
+				// setTimeout((function() { this.connect() }).bind(this), 1000);
+				this.reconnectTimes++;
 		}
 	}
 }
+const socket = new WebSocketService();
+socket.connect();
