@@ -5,5 +5,5 @@ Implement algorithmic trading by JAVA + microservice + chronicle queue + python
 
 == System Architecture
 
-image::algo-architecture.png[]
+image::architecture.png[]
 
