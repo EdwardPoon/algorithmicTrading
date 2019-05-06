@@ -1,9 +1,16 @@
 = Algorithmic Trading
 :imagesdir: images
 
-Implement algorithmic trading by JAVA + microservice + chronicle queue + python
+== Introduction
+Implement algorithmic trading by JAVA × microservice × chronicle queue × kafka × python
 
 == System Architecture
 
 image::architecture.png[]
+
+== System modules
+
+=== Service
+
+
 
