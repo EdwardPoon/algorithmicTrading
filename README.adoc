@@ -1,5 +1,5 @@
 = Algorithmic Trading
-:imagesdir: images®
+:imagesdir: images
 
 == Introduction
 Implement algorithmic trading by JAVA × microservice × chronicle queue × kafka × python, applying the reactive microservice architecture.
