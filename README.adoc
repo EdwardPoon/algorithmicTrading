@@ -1,8 +1,8 @@
 = Algorithmic Trading
-:imagesdir: images
+:imagesdir: images®
 
 == Introduction
-Implement algorithmic trading by JAVA × microservice × chronicle queue × kafka × python
+Implement algorithmic trading by JAVA × microservice × chronicle queue × kafka × python, applying the reactive microservice architecture.
 
 == System Architecture
 
@@ -10,7 +10,24 @@ image::architecture.png[]
 
 == System modules
 
-=== Service
+===== data-handler
 
+Receive market data feed from broker API and data resource like yahoo and tencent.
+In order to achieve low latency to downstream system, data will be pushed into chronicle queue.
 
+===== news crawler
+
+A web crawler to get news feed, news is an important catalyst for price changing.
+
+===== order-management
+
+OMS would consume the market data feed from chronicle and trigger the order creation base on the trading strategies. Order would be executed manually or automatically by configuration.
+
+===== market data and news producer
+
+Consume data from chronicle queue and work as an kafka producer to push data to kafka cluster, data would be used for improving and reviewing the trading algorithm by machine learning and back testing.  
+
+===== algorithm-improvement
+
+Replay the market data feed and news data as a kafka consumer, apply machine learning to improve the algorithm, this module would be developed in python.
 
