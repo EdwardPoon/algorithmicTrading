@@ -33,7 +33,7 @@ Replay the market data feed and news data as a kafka consumer, apply machine lea
 
 '''
 
-image::https://www.yourkit.com/images/yklogo.png[]
+image::yklogo.png[]
 YourKit supports open source projects with innovative and intelligent tools 
 for monitoring and profiling Java and .NET applications.
 YourKit is the creator of https://www.yourkit.com/java/profiler/[YourKit Java Profiler],
