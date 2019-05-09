@@ -10,24 +10,33 @@ image::architecture.png[]
 
 == System modules
 
-===== data-handler
+==== data-handler
 
 Receive market data feed from broker API and data resource like yahoo and tencent.
 In order to achieve low latency to downstream system, data will be pushed into chronicle queue.
 
-===== news crawler
+==== news crawler
 
 A web crawler to get news feed, news is an important catalyst for price changing.
 
-===== order-management
+==== order-management
 
 OMS would consume the market data feed from chronicle and trigger the order creation base on the trading strategies. Order would be executed manually or automatically by configuration.
 
-===== market data and news producer
+==== market data and news producer
 
 Consume data from chronicle queue and work as an kafka producer to push data to kafka cluster, data would be used for improving and reviewing the trading algorithm by machine learning and back testing.  
 
-===== algorithm-improvement
+==== algorithm-improvement
 
 Replay the market data feed and news data as a kafka consumer, apply machine learning to improve the algorithm, this module would be developed in python.
+
+'''
+
+image::https://www.yourkit.com/images/yklogo.png[]
+YourKit supports open source projects with innovative and intelligent tools 
+for monitoring and profiling Java and .NET applications.
+YourKit is the creator of https://www.yourkit.com/java/profiler/[YourKit Java Profiler],
+https://www.yourkit.com/.net/profiler/[YourKit .NET Profiler],
+and https://www.yourkit.com/youmonitor/[YourKit YouMonitor].
 
