@@ -10,9 +10,9 @@ image::architecture.png[]
 
 == System modules
 
-==== data-handler
+==== datafeed-handler
 
-Receive market data feed from broker API and data resource like yahoo and tencent.
+Receive market data feed from broker API or retrieve data from source like yahoo and tencent.
 In order to achieve low latency to downstream system, data will be pushed into chronicle queue.
 
 ==== news crawler
@@ -23,9 +23,9 @@ A web crawler to get news feed, news is an important catalyst for price changing
 
 OMS would consume the market data feed from chronicle and trigger the order creation base on the trading strategies. Order would be executed manually or automatically by configuration.
 
-==== market data and news producer
+==== market data and news transformer
 
-Consume data from chronicle queue and work as an kafka producer to push data to kafka cluster, data would be used for improving and reviewing the trading algorithm by machine learning and back testing.  
+Consume data from chronicle queue and work as a kafka producer to push data to kafka cluster, data would be used for improving and reviewing the trading algorithm by machine learning and back testing.  
 
 ==== algorithm-improvement
 
