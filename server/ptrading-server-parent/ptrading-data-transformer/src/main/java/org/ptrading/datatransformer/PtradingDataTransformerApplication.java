@@ -1,4 +1,4 @@
-package org.ptrading;
+package org.ptrading.datatransformer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
