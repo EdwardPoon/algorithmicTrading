@@ -1,18 +1,17 @@
 package org.ptrading.datafeed;
 
 import org.ptrading.datafeed.service.MarketDataFeedListener;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class PtradingDatafeedHandlerApplication {
 
-	@Autowired
-	private MarketDataFeedListener marketDataFeedListener;
-	
 	public static void main(String[] args) {
-		SpringApplication.run(PtradingDatafeedHandlerApplication.class, args);
+		ApplicationContext ctx = SpringApplication.run(PtradingDatafeedHandlerApplication.class, args);
+		MarketDataFeedListener marketDataFeedListener = ctx.getBean(MarketDataFeedListener.class);
+		marketDataFeedListener.listenData();
 		
 	}
 

@@ -18,7 +18,7 @@ import net.openhft.chronicle.queue.ExcerptAppender;
 @Service
 public class MarketDataFeedListener {
 
-	private static int INTERVAL = 100;
+	private static int INTERVAL = 1000;
 	private final String EQUITY_MARKET_DATA_QUEUE = "org.ptrading.marketdata.equity";
 	
 	// simulate market data feed
@@ -34,7 +34,8 @@ public class MarketDataFeedListener {
 					.blockingSubscribe(integer -> {
 						System.out.println(integer);
 						EquityDataFeed feed = generateEquityDataFeed();
-						securityDataFeedService.saveFeed(feed);
+						System.out.println(feed);
+						//securityDataFeedService.saveFeed(feed);
 					});
 		}
 	}
